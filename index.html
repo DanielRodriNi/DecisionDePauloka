@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decisión de Pauloka - Interactive Adventure</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <main class="game-container">
+            <div id="game-card" class="glass-card">
+                <header class="game-header">
+                    <h1 id="scenario-title">Cargando aventura...</h1>
+                </header>
+                <div class="content-wrapper">
+                    <p id="scenario-description">Espera un momento mientras preparamos tu historia.</p>
+                </div>
+                <div id="options-container" class="options-grid">
+                    <!-- Options will be injected here -->
+                </div>
+            </div>
+
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="bg-gradient"></div>
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
