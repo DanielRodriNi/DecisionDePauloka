@@ -22,12 +22,13 @@ body {
   font-family: var(--font-main);
   background-color: var(--dark);
   color: var(--light);
-  overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 1s ease;
+  overflow-x: hidden;
+  padding: 1rem;
 }
 
 /* Themes */
@@ -162,10 +163,11 @@ body.theme-romantic {
 }
 
 .game-container {
-  width: 95%;
+  width: 100%;
   max-width: 800px;
   perspective: 1000px;
   z-index: 10;
+  margin: auto;
 }
 
 .glass-card {
@@ -174,10 +176,11 @@ body.theme-romantic {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 32px;
-  padding: 2.5rem;
+  padding: clamp(1rem, 5vw, 2.5rem);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   transform-style: preserve-3d;
   transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  width: 100%;
 }
 
 .game-header h1 {
@@ -209,7 +212,7 @@ body.theme-romantic {
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
-  height: 250px;
+  height: clamp(150px, 40vh, 300px);
   position: relative;
   width: 100%;
 }
@@ -398,14 +401,30 @@ body.theme-romantic {
 
 @media (max-width: 600px) {
   .game-header h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
   }
 
-  .image-display-container {
-    height: 180px;
+  .content-wrapper p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  .glass-card {
-    padding: 1.5rem;
+  .options-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .option-btn {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  #audio-toggle {
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 }

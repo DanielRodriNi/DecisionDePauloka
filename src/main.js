@@ -254,7 +254,7 @@ class Game {
         this.minigameActive = true;
         this.score = 0;
         this.optionsContainer.innerHTML = '';
-        this.imageContainer.innerHTML = '<div class="game-area" id="game-area"><div class="basket" id="basket">🎒</div><div class="score-display">Pomeranias: <span id="current-score">0</span>/5</div></div>';
+        this.imageContainer.innerHTML = '<div class="game-area" id="game-area" style="touch-action: none;"><div class="basket" id="basket">🎒</div><div class="score-display">Pomeranias: <span id="current-score">0</span>/5</div></div>';
 
         const gameArea = document.getElementById('game-area');
         const basket = document.getElementById('basket');
