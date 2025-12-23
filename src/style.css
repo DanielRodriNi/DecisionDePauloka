@@ -63,8 +63,13 @@ body {
 }
 
 @keyframes float {
-  from { transform: translate(0, 0); }
-  to { transform: translate(5%, 5%); }
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(5%, 5%);
+  }
 }
 
 /* Layout */
@@ -91,6 +96,7 @@ body {
     opacity: 0;
     transform: translateY(30px) rotateX(-5deg);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) rotateX(0);
@@ -103,6 +109,7 @@ body {
   margin-bottom: 1.5rem;
   background: linear-gradient(to right, #fff, #3498db);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
 }
@@ -180,6 +187,57 @@ body {
   width: 0%;
   background: linear-gradient(to right, var(--primary), var(--secondary));
   transition: width 0.5s ease;
+}
+
+/* Image Styling */
+.scenario-image-wrapper {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.scenario-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.scenario-image:hover {
+  transform: scale(1.02);
+}
+
+/* Shake Animation for Guilt Trip */
+.shake {
+  animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 /* Responsive */

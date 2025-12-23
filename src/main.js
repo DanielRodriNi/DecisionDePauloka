@@ -5,6 +5,7 @@ class Game {
         this.titleElement = document.getElementById('scenario-title');
         this.descriptionElement = document.getElementById('scenario-description');
         this.optionsContainer = document.getElementById('options-container');
+        this.imageContainer = document.getElementById('image-container');
         this.progressBar = document.getElementById('progress-bar');
 
         this.currentScenarioId = 'start';
@@ -29,6 +30,25 @@ class Game {
         card.style.animation = 'none';
         card.offsetHeight; // force reflow
         card.style.animation = 'cardEntry 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
+
+        // Handle shake effect
+        if (scenario.shake) {
+            card.classList.add('shake');
+            setTimeout(() => card.classList.remove('shake'), 500);
+        }
+
+        // Handle Image
+        this.imageContainer.innerHTML = '';
+        if (scenario.image) {
+            const img = document.createElement('img');
+            img.src = scenario.image;
+            img.alt = scenario.title;
+            img.className = 'scenario-image';
+            this.imageContainer.appendChild(img);
+            this.imageContainer.style.display = 'block';
+        } else {
+            this.imageContainer.style.display = 'none';
+        }
 
         this.titleElement.textContent = scenario.title;
         this.descriptionElement.textContent = scenario.description;
