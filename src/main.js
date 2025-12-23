@@ -178,23 +178,12 @@ class Game {
         this.imageContainer.className = 'image-display-container';
 
         if (scenario.carousel) {
-            const carouselSlot = this.createCarouselSlot(scenario.carousel, "Aventura 🎮");
+            const carouselSlot = this.createCarouselSlot(scenario.carousel);
             this.imageContainer.appendChild(carouselSlot);
-
-            if (scenario.image) {
-                const realitySlot = this.createImageSlot(scenario.image, "Realidad ✨");
-                this.imageContainer.appendChild(realitySlot);
-            }
             this.imageContainer.style.display = 'flex';
-        } else if (scenario.image || scenario.illustration) {
-            if (scenario.image) {
-                const slot = this.createImageSlot(scenario.image, "Realidad ✨");
-                this.imageContainer.appendChild(slot);
-            }
-            if (scenario.illustration) {
-                const slot = this.createImageSlot(scenario.illustration, "Aventura 🎮");
-                this.imageContainer.appendChild(slot);
-            }
+        } else if (scenario.image) {
+            const slot = this.createImageSlot(scenario.image);
+            this.imageContainer.appendChild(slot);
             this.imageContainer.style.display = 'flex';
         } else {
             this.imageContainer.style.display = 'none';
@@ -218,23 +207,19 @@ class Game {
         this.updateProgress();
     }
 
-    createImageSlot(src, label) {
+    createImageSlot(src) {
         const slot = document.createElement('div');
         slot.className = 'image-slot';
         const img = document.createElement('img');
         img.src = src;
         img.onerror = () => {
-            img.src = 'https://via.placeholder.com/400x250?text=Cargando+Imagen...';
+            img.src = 'https://via.placeholder.com/800x450?text=Cargando+Imagen...';
         };
-        const lbl = document.createElement('div');
-        lbl.className = 'image-label';
-        lbl.textContent = label;
         slot.appendChild(img);
-        slot.appendChild(lbl);
         return slot;
     }
 
-    createCarouselSlot(images, label) {
+    createCarouselSlot(images) {
         const container = document.createElement('div');
         container.className = 'carousel-container';
 
@@ -246,17 +231,12 @@ class Game {
             img.className = 'carousel-image';
             img.src = src;
             img.onerror = () => {
-                img.src = `https://via.placeholder.com/400x250?text=${src.split('/').pop()}`;
+                img.src = `https://via.placeholder.com/800x450?text=${src.split('/').pop()}`;
             };
             track.appendChild(img);
         });
 
-        const lbl = document.createElement('div');
-        lbl.className = 'image-label';
-        lbl.textContent = label;
-
         container.appendChild(track);
-        container.appendChild(lbl);
 
         let currentIndex = 0;
         setInterval(() => {

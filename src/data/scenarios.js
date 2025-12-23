@@ -1,12 +1,10 @@
 export const scenarios = {
     start: {
         title: "¡ENHORABUENA!",
-        image: "assets/VistaExterior.jpg",
-        illustration: "assets/choice_celebration_toledo.png",
         carousel: [
-            "assets/Concierto.png",
-            "assets/Eventos.png",
-            "assets/DePauloka.png"
+            "assets/choice_celebration_toledo.png",
+            "assets/toledo_sunset_view_stylized.png",
+            "assets/adventure_map_toledo.png"
         ],
         description: "¡HAS GANADO UN REGALO INCREÍBLE PARA TU CUMPLE! Nos vamos al Hotel Pintor el Greco en Toledo.\n\nDisfruta de un viaje al pasado en un edificio histórico, antigua tahona de la Catedral.",
         theme: "party",
@@ -18,8 +16,7 @@ export const scenarios = {
     },
     schedule: {
         title: "Aventura Gastronómica",
-        image: "assets/VistaExterior.jpg",
-        illustration: "assets/toledo_feast_adventure.png",
+        image: "assets/toledo_feast_adventure.png",
         description: "Llegaremos el sábado 21 de febrero por la mañana.\n\nComeremos de lujo, aunque a las 14h hay que dejar el hotel 3 horitas (momento siesta/paseo), ¡y luego ya es COQUIN puro!",
         theme: "adventure",
         options: [
@@ -38,7 +35,6 @@ export const scenarios = {
     hotel_info: {
         title: "Un lugar con historia",
         image: "assets/VistaExterior.jpg",
-        illustration: "assets/adventure_map_toledo.png",
         description: "Ubicado en pleno centro de Toledo. La zona de desayunos albergó la antigua cámara acorazada de la Catedral.\n\nSus 57 habitaciones recientemente renovadas cuentan con un diseño único.",
         theme: "adventure",
         options: [
@@ -57,7 +53,6 @@ export const scenarios = {
     coco_choice: {
         title: "¿¿ESTÁS SEGURA??",
         image: "assets/HabitacionSencilla.png",
-        illustration: "assets/coco_pomeranian_sad_pixar.png",
         description: "Mira esta habitación... es la 'Sencilla'. Un poco fea, ¿no? ¿De verdad prefieres esto solo por traer a Coco?",
         theme: "tense",
         shake: true,
@@ -69,8 +64,7 @@ export const scenarios = {
     },
     coco_insist: {
         title: "LO QUE TE PIERDES...",
-        image: "assets/PremiumCueva.jpg",
-        illustration: "assets/coco_pomeranian_sad_pixar.png",
+        image: "assets/coco_pomeranian_sad_pixar.png",
         description: "Esta es la OTRA opción. Mira esa cueva, mira ese diseño... ¿Segura seguraaa?? ¿En serio quieres la sencilla?",
         theme: "tense",
         shake: true,
@@ -83,7 +77,6 @@ export const scenarios = {
     solos_choice: {
         title: "Opción Premium Cueva",
         image: "assets/PremiumCueva.jpg",
-        illustration: "assets/toledo_sunset_view_stylized.png",
         description: "¡WOW! Mirad esta habitación. Espectacular. Pero... ¿no te da pena dejar a Coco? :(",
         theme: "sad",
         options: [
@@ -94,7 +87,6 @@ export const scenarios = {
     coco_ending: {
         title: "Final: Aventura Perruna",
         image: "assets/Coco1.jpg",
-        illustration: "assets/coco_pomeranian_sad_pixar.png",
         description: "¡Conseguido! Toledo será testigo de los paseos de Coco. Será un cumple inolvidable (y ruidoso).",
         theme: "party",
         options: [
@@ -103,8 +95,7 @@ export const scenarios = {
     },
     solos_ending: {
         title: "Final: Relax Absoluto",
-        image: "assets/PremiumCueva.jpg",
-        illustration: "assets/toledo_sunset_view_stylized.png",
+        image: "assets/toledo_sunset_view_stylized.png",
         description: "Disfrutaréis de la paz histórica de Toledo. Eso sí, preparaos para la cara de pena de Coco al volver.",
         theme: "romantic",
         options: [
