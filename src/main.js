@@ -110,7 +110,8 @@ class Game {
         this.audio = new AudioController();
         this.currentScenarioId = 'start';
         this.history = [];
-
+        this.minigameActive = false;
+        this.score = 0;
         this.init();
     }
 
@@ -177,7 +178,9 @@ class Game {
         this.imageContainer.innerHTML = '';
         this.imageContainer.className = 'image-display-container';
 
-        if (scenario.carousel) {
+        if (scenario.minigame) {
+            this.startMinigame();
+        } else if (scenario.carousel) {
             const carouselSlot = this.createCarouselSlot(scenario.carousel);
             this.imageContainer.appendChild(carouselSlot);
             this.imageContainer.style.display = 'flex';
@@ -245,6 +248,79 @@ class Game {
         }, 3000);
 
         return container;
+    }
+
+    startMinigame() {
+        this.minigameActive = true;
+        this.score = 0;
+        this.optionsContainer.innerHTML = '';
+        this.imageContainer.innerHTML = '<div class="game-area" id="game-area"><div class="basket" id="basket">🎒</div><div class="score-display">Pomeranias: <span id="current-score">0</span>/5</div></div>';
+
+        const gameArea = document.getElementById('game-area');
+        const basket = document.getElementById('basket');
+        const scoreSpan = document.getElementById('current-score');
+
+        const moveHandler = (e) => {
+            if (!this.minigameActive) return;
+            const cardRect = gameArea.getBoundingClientRect();
+            let x = (e.clientX || e.touches?.[0].clientX) - cardRect.left;
+            x = Math.max(25, Math.min(cardRect.width - 25, x));
+            basket.style.left = `${x}px`;
+        };
+
+        gameArea.addEventListener('mousemove', moveHandler);
+        gameArea.addEventListener('touchstart', moveHandler);
+
+        const spawnDog = () => {
+            if (!this.minigameActive) return;
+            const dog = document.createElement('div');
+            dog.className = 'falling-dog';
+            dog.textContent = '🐩';
+            dog.style.left = `${Math.random() * (gameArea.clientWidth - 30) + 15}px`;
+            gameArea.appendChild(dog);
+
+            let pos = 0;
+            const fallInterval = setInterval(() => {
+                if (!this.minigameActive) {
+                    clearInterval(fallInterval);
+                    dog.remove();
+                    return;
+                }
+                pos += 3;
+                dog.style.top = `${pos}px`;
+
+                const dogRect = dog.getBoundingClientRect();
+                const basketRect = basket.getBoundingClientRect();
+
+                if (dogRect.bottom > basketRect.top &&
+                    dogRect.right > basketRect.left &&
+                    dogRect.left < basketRect.right) {
+                    this.score++;
+                    scoreSpan.textContent = this.score;
+                    this.audio.playClick();
+                    dog.remove();
+                    clearInterval(fallInterval);
+
+                    if (this.score >= 5) {
+                        this.endMinigame(true);
+                    }
+                } else if (pos > gameArea.clientHeight) {
+                    dog.remove();
+                    clearInterval(fallInterval);
+                }
+            }, 20);
+
+            setTimeout(() => spawnDog(), 1000);
+        };
+
+        spawnDog();
+    }
+
+    endMinigame(success) {
+        this.minigameActive = false;
+        if (success) {
+            this.handleChoice('main_choice');
+        }
     }
 
     triggerConfetti() {

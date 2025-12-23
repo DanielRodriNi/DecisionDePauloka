@@ -38,8 +38,15 @@ export const scenarios = {
         description: "Ubicado en pleno centro de Toledo. La zona de desayunos albergó la antigua cámara acorazada de la Catedral.\n\nSus 57 habitaciones recientemente renovadas cuentan con un diseño único.",
         theme: "adventure",
         options: [
-            { text: "¡Increíble! Continuar", next: "main_choice" }
+            { text: "¡Increíble! Continuar", next: "minigame_intro" }
         ]
+    },
+    minigame_intro: {
+        title: "¡DESAFÍO!",
+        description: "¡ALTO! Para poder tomar una decisión, antes debes superar este desafío: RECOGE 5 POMERANIAS BLANCOS.",
+        theme: "party",
+        minigame: true,
+        options: [] // The game will handle transition
     },
     main_choice: {
         title: "¿Cómo vamos?",
