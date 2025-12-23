@@ -11,40 +11,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <div id="app">
-        <main class="game-container">
-            <div id="game-card" class="glass-card">
-                <header class="game-header">
-                    <div id="image-container" class="scenario-image-wrapper">
-                        <!-- Image will be injected here -->
-                    </div>
-                    <h1 id="scenario-title">Cargando aventura...</h1>
-                </header>
-                <div class="content-wrapper">
-                    <p id="scenario-description">Espera un momento mientras preparamos tu historia.</p>
+<button id="audio-toggle" title="Toggle Music"
+    style="position: fixed; top: 20px; right: 20px; z-index: 1001; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🎵</button>
+<div id="app">
+    <main class="game-container">
+        <div id="game-card" class="glass-card">
+            <header class="game-header">
+                <div id="image-container" class="scenario-image-wrapper">
+                    <!-- Image will be injected here -->
                 </div>
-                <div id="options-container" class="options-grid">
-                    <!-- Options will be injected here -->
-                </div>
+                <h1 id="scenario-title">Cargando aventura...</h1>
+            </header>
+            <div class="content-wrapper">
+                <p id="scenario-description">Espera un momento mientras preparamos tu historia.</p>
             </div>
-
-            <div id="progress-bar-container">
-                <div id="progress-bar"></div>
+            <div id="options-container" class="options-grid">
+                <!-- Options will be injected here -->
             </div>
-        </main>
-    </div>
+        </div>
 
-    <!-- Background Elements -->
-    <div class="bg-gradient"></div>
-    <div id="particles-container"></div>
-    <div class="bg-glow-1"></div>
-    <div class="bg-glow-2"></div>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+    </main>
+</div>
 
-    <!-- Confetti Canvas -->
-    <canvas id="confetti-canvas"></canvas>
+<!-- Background Elements -->
+<div class="bg-gradient"></div>
+<div id="particles-container"></div>
+<div class="bg-glow-1"></div>
+<div class="bg-glow-2"></div>
 
-    <script type="module" src="src/main.js"></script>
+<!-- Confetti Canvas -->
+<canvas id="confetti-canvas"></canvas>
+
+<script type="module" src="src/main.js"></script>
 </body>
 
 </html>
