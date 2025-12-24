@@ -33,7 +33,7 @@ export const scenarios = {
     },
     hotel_info: {
         title: "Un lugar con historia",
-        image: "assets/VistaExterior.jpg",
+        image: "assets/Catedral.jpg",
         description: "Ubicado en pleno centro de Toledo. La zona de desayunos albergó la antigua cámara acorazada de la Catedral.\n\nSus 57 habitaciones recientemente renovadas cuentan con un diseño único.",
         theme: "adventure",
         options: [
