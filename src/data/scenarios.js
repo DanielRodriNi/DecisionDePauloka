@@ -3,8 +3,7 @@ export const scenarios = {
         title: "¡ENHORABUENA!",
         carousel: [
             "assets/choice_celebration_toledo.png",
-            "assets/toledo_sunset_view_stylized.png",
-            "assets/adventure_map_toledo.png"
+            "assets/toledo_sunset_view_stylized.png"
         ],
         description: "¡HAS GANADO UN REGALO INCREÍBLE PARA TU CUMPLE! Nos vamos al Hotel Pintor el Greco en Toledo.\n\nDisfruta de un viaje al pasado en un edificio histórico, antigua tahona de la Catedral.",
         theme: "party",
@@ -71,7 +70,7 @@ export const scenarios = {
     },
     coco_insist: {
         title: "LO QUE TE PIERDES...",
-        image: "assets/coco_pomeranian_sad_pixar.png",
+        image: "assets/PremiumCueva.jpg",
         description: "Esta es la OTRA opción. Mira esa cueva, mira ese diseño... ¿Segura seguraaa?? ¿En serio quieres la sencilla?",
         theme: "tense",
         shake: true,
@@ -103,7 +102,7 @@ export const scenarios = {
     },
     solos_ending: {
         title: "Final: Relax Absoluto",
-        image: "assets/toledo_sunset_view_stylized.png",
+        image: "assets/Coco3.jpg",
         description: "Disfrutaréis de la paz histórica de Toledo. Eso sí, preparaos para la cara de pena de Coco al volver.",
         theme: "romantic",
         lighting: true,

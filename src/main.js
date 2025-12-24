@@ -2,20 +2,14 @@ import { scenarios } from './data/scenarios.js';
 
 class AudioController {
     constructor() {
-        this.ctx = new (window.AudioContext || window.webkitAudioContext)();
-        this.oscillator = null;
-        this.gainNode = null;
+        this.audio = new Audio('assets/AitanaSUPERESTRELLA.mp3');
+        this.audio.loop = true;
+        this.audio.volume = 0.3;
         this.isPlaying = false;
         this.muted = false;
 
-        // SFX colors/notes
-        this.notes = {
-            party: [523.25, 659.25, 783.99], // C5, E5, G5
-            tense: [110.00, 116.54, 123.47], // A2, Bb2, B2 (Dissonant)
-            adventure: [392.00, 493.88, 587.33], // G4, B4, D5
-            sad: [261.63, 311.13, 392.00], // C4, Eb4, G4 (Minor)
-            romantic: [349.23, 440.00, 523.25] // F4, A4, C5
-        };
+        // Click sound context
+        this.ctx = new (window.AudioContext || window.webkitAudioContext)();
     }
 
     toggle() {
@@ -30,52 +24,12 @@ class AudioController {
     start() {
         if (this.isPlaying) return;
         this.isPlaying = true;
-        this.playMelody('adventure');
+        this.audio.play().catch(err => console.log('Audio play failed:', err));
     }
 
     stop() {
-        if (this.oscillator) {
-            this.oscillator.stop();
-            this.oscillator = null;
-        }
+        this.audio.pause();
         this.isPlaying = false;
-    }
-
-    playMelody(type) {
-        if (!this.isPlaying || this.muted) return;
-        if (this.oscillator) this.oscillator.stop();
-
-        this.oscillator = this.ctx.createOscillator();
-        this.gainNode = this.ctx.createGain();
-
-        const typeMap = {
-            party: 'triangle',
-            tense: 'sawtooth',
-            adventure: 'sine',
-            sad: 'sine',
-            romantic: 'triangle'
-        };
-
-        this.oscillator.type = typeMap[type] || 'sine';
-        this.oscillator.connect(this.gainNode);
-        this.gainNode.connect(this.ctx.destination);
-
-        this.gainNode.gain.setValueAtTime(0, this.ctx.currentTime);
-        this.gainNode.gain.linearRampToValueAtTime(0.1, this.ctx.currentTime + 0.5);
-
-        const sequence = this.notes[type] || this.notes.adventure;
-        let time = this.ctx.currentTime;
-
-        sequence.forEach((freq, i) => {
-            this.oscillator.frequency.setValueAtTime(freq, time + i * 0.5);
-        });
-
-        this.oscillator.start();
-
-        // Loop melody
-        this.oscillator.onended = () => {
-            if (this.isPlaying) this.playMelody(type);
-        };
     }
 
     playClick() {
