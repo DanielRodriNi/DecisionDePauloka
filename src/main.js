@@ -131,10 +131,6 @@ class Game {
             this.triggerLightingEffect(false);
         }
 
-        // Audio update
-        if (this.audio.isPlaying) {
-            this.audio.playMelody(scenario.theme || 'adventure');
-        }
 
         // Dual Image Display (Photo + Illustration)
         this.imageContainer.innerHTML = '';
