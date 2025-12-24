@@ -16,7 +16,7 @@ export const scenarios = {
     schedule: {
         title: "Aventura Gastronómica",
         image: "assets/toledo_feast_adventure.png",
-        description: "Llegaremos el sábado 21 de febrero por la mañana.\n\nComeremos de lujo, aunque a las 14h hay que dejar el hotel 3 horitas (momento siesta/paseo), ¡y luego ya es COQUIN puro!",
+        description: "Llegaremos el sábado 21 de febrero por la mañana.\n\nComeremos de lujo, aunque a las 14h HAY QUE DEJAR EL HOTEL 3 HORITAS.",
         theme: "adventure",
         options: [
             { text: "¡Qué buena pinta! Continuar", next: "hotel_info" },
@@ -25,7 +25,7 @@ export const scenarios = {
     },
     schedule_alt: {
         title: "Sobre esas 3 horas...",
-        description: "Son obligatorias por logística, ¡pero se puede quedar una en el hotel descansando o dar un paseíto! Luego ya no nos separamos.",
+        description: "Son obligatorias por logística, ¡pero si viene Coco, se puede quedar en el hotel descansando! Luego ya no nos separamos, ¡COQUIN puro!",
         theme: "adventure",
         options: [
             { text: "Vale, acepto el trato", next: "hotel_info" }
@@ -42,7 +42,7 @@ export const scenarios = {
     },
     minigame_intro: {
         title: "¡DESAFÍO!",
-        description: "¡ALTO! Para poder tomar una decisión, antes debes superar este desafío: RECOGE 5 POMERANIAS BLANCOS.",
+        description: "¡ALTO! Para poder tomar una decisión, antes debes superar este desafío: RECOGE 5 COQUINES.",
         theme: "party",
         minigame: true,
         options: [] // The game will handle transition
@@ -93,7 +93,7 @@ export const scenarios = {
     coco_ending: {
         title: "Final: Aventura Perruna",
         image: "assets/Coco1.jpg",
-        description: "¡Conseguido! Toledo será testigo de los paseos de Coco. Será un cumple inolvidable (y ruidoso).",
+        description: "¡Conseguido! Toledo será testigo de los paseos de Coco. Será un finde inolvidable (y ruidoso).",
         theme: "party",
         lighting: true,
         options: [
@@ -103,7 +103,7 @@ export const scenarios = {
     solos_ending: {
         title: "Final: Relax Absoluto",
         image: "assets/Coco3.jpg",
-        description: "Disfrutaréis de la paz histórica de Toledo. Eso sí, preparaos para la cara de pena de Coco al volver.",
+        description: "Disfrutarás de la paz histórica de Toledo. Eso sí, prepárate para la cara de pena de Coco al volver.",
         theme: "romantic",
         lighting: true,
         options: [
