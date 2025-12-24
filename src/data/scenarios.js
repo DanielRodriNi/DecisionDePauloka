@@ -3,7 +3,7 @@ export const scenarios = {
         title: "¡ENHORABUENA!",
         carousel: [
             "assets/choice_celebration_toledo.png",
-            "assets/toledo_sunset_view_stylized.png"
+            "assets/VistaExterior_quality.png"
         ],
         description: "¡HAS GANADO UN REGALO INCREÍBLE PARA TU CUMPLE! Nos vamos al Hotel Pintor el Greco en Toledo.\n\nDisfruta de un viaje al pasado en un edificio histórico, antigua tahona de la Catedral.",
         theme: "party",
@@ -70,7 +70,7 @@ export const scenarios = {
     },
     coco_insist: {
         title: "LO QUE TE PIERDES...",
-        image: "assets/PremiumCueva.jpg",
+        image: "assets/PremiumCueva_quality.png",
         description: "Esta es la OTRA opción. Mira esa cueva, mira ese diseño... ¿Segura seguraaa?? ¿En serio quieres la sencilla?",
         theme: "tense",
         shake: true,
@@ -82,7 +82,7 @@ export const scenarios = {
     },
     solos_choice: {
         title: "Opción Premium Cueva",
-        image: "assets/PremiumCueva.jpg",
+        image: "assets/PremiumCueva_quality.png",
         description: "¡WOW! Mirad esta habitación. Espectacular. Pero... ¿no te da pena dejar a Coco? :(",
         theme: "sad",
         options: [

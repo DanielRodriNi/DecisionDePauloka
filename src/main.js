@@ -73,6 +73,10 @@ class Game {
         this.createParticles();
         this.renderScenario(this.currentScenarioId);
 
+        // Start audio automatically
+        this.audio.start();
+        this.audioToggle.textContent = '🔊';
+
         this.audioToggle.onclick = () => {
             const playing = this.audio.toggle();
             this.audioToggle.textContent = playing ? '🔊' : '🎵';
