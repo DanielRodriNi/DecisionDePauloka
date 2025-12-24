@@ -279,7 +279,12 @@ class Game {
             if (!this.minigameActive) return;
             const dog = document.createElement('div');
             dog.className = 'falling-dog';
-            dog.textContent = '🐩';
+            const img = document.createElement('img');
+            img.src = 'assets/CocoEmoji.png';
+            img.style.width = '40px';
+            img.style.height = '40px';
+            img.style.objectFit = 'contain';
+            dog.appendChild(img);
             dog.style.left = `${Math.random() * (gameArea.clientWidth - 30) + 15}px`;
             gameArea.appendChild(dog);
 

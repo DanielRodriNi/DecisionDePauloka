@@ -315,9 +315,16 @@ body.lighting-active .bg-glow-2 {
 .falling-dog {
   position: absolute;
   top: -40px;
-  font-size: 2.2rem;
+  width: 40px;
+  height: 40px;
   pointer-events: none;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.falling-dog img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .score-display {
