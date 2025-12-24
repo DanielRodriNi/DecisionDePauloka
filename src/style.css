@@ -67,14 +67,55 @@ body.theme-romantic {
   --btn-radius: 30px;
 }
 
-#confetti-canvas {
+#lighting-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 100;
+  z-index: 90;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(255, 255, 255, 0) 100%);
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+
+body.lighting-active #lighting-overlay {
+  opacity: 1;
+  animation: shimmer-light 4s infinite alternate ease-in-out;
+}
+
+body.lighting-active .bg-glow-1,
+body.lighting-active .bg-glow-2 {
+  animation: float 10s infinite alternate, glow-pulse 3s infinite alternate ease-in-out;
+  opacity: 0.6;
+}
+
+@keyframes shimmer-light {
+  0% {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+    filter: brightness(1);
+  }
+
+  50% {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 85%);
+    filter: brightness(1.3);
+  }
+
+  100% {
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 75%);
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes glow-pulse {
+  from {
+    filter: blur(50px) brightness(1);
+  }
+
+  to {
+    filter: blur(70px) brightness(1.5);
+  }
 }
 
 #particles-container {

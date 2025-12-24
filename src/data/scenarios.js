@@ -12,7 +12,7 @@ export const scenarios = {
             { text: "Ver el plan detallado", next: "schedule" },
             { text: "¡Amo Toledo! Vamos", next: "main_choice" }
         ],
-        confetti: true
+        lighting: true
     },
     schedule: {
         title: "Aventura Gastronómica",
@@ -96,6 +96,7 @@ export const scenarios = {
         image: "assets/Coco1.jpg",
         description: "¡Conseguido! Toledo será testigo de los paseos de Coco. Será un cumple inolvidable (y ruidoso).",
         theme: "party",
+        lighting: true,
         options: [
             { text: "Empezar de nuevo", next: "start" }
         ]
@@ -105,6 +106,7 @@ export const scenarios = {
         image: "assets/toledo_sunset_view_stylized.png",
         description: "Disfrutaréis de la paz histórica de Toledo. Eso sí, preparaos para la cara de pena de Coco al volver.",
         theme: "romantic",
+        lighting: true,
         options: [
             { text: "Empezar de nuevo", next: "start" }
         ]

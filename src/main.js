@@ -104,7 +104,7 @@ class Game {
         this.imageContainer = document.getElementById('image-container');
         this.progressBar = document.getElementById('progress-bar');
         this.particlesContainer = document.getElementById('particles-container');
-        this.confettiCanvas = document.getElementById('confetti-canvas');
+        this.lightingOverlay = document.getElementById('lighting-overlay');
         this.audioToggle = document.getElementById('audio-toggle');
 
         this.audio = new AudioController();
@@ -167,7 +167,11 @@ class Game {
             card.classList.remove('strobe');
         }
 
-        if (scenario.confetti) this.triggerConfetti();
+        if (scenario.lighting) {
+            this.triggerLightingEffect(true);
+        } else {
+            this.triggerLightingEffect(false);
+        }
 
         // Audio update
         if (this.audio.isPlaying) {
@@ -323,40 +327,12 @@ class Game {
         }
     }
 
-    triggerConfetti() {
-        const ctx = this.confettiCanvas.getContext('2d');
-        this.confettiCanvas.width = window.innerWidth;
-        this.confettiCanvas.height = window.innerHeight;
-        const pieces = [];
-        for (let i = 0; i < 150; i++) {
-            pieces.push({
-                x: Math.random() * this.confettiCanvas.width,
-                y: Math.random() * this.confettiCanvas.height - this.confettiCanvas.height,
-                w: Math.random() * 10 + 5,
-                h: Math.random() * 10 + 5,
-                color: `hsl(${Math.random() * 360}, 70%, 50%)`,
-                speed: Math.random() * 3 + 2,
-                rotation: Math.random() * 360,
-                rotationSpeed: Math.random() * 10 - 5
-            });
+    triggerLightingEffect(active) {
+        if (active) {
+            document.body.classList.add('lighting-active');
+        } else {
+            document.body.classList.remove('lighting-active');
         }
-        const update = () => {
-            ctx.clearRect(0, 0, this.confettiCanvas.width, this.confettiCanvas.height);
-            let stillFalling = false;
-            pieces.forEach(p => {
-                p.y += p.speed;
-                p.rotation += p.rotationSpeed;
-                ctx.save();
-                ctx.translate(p.x, p.y);
-                ctx.rotate(p.rotation * Math.PI / 180);
-                ctx.fillStyle = p.color;
-                ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-                ctx.restore();
-                if (p.y < this.confettiCanvas.height) stillFalling = true;
-            });
-            if (stillFalling) requestAnimationFrame(update);
-        };
-        update();
     }
 
     handleChoice(nextId) {
